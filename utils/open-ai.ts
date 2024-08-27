@@ -1,7 +1,8 @@
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+  dangerouslyAllowBrowser: true,
 });
 
 export async function openAI(description: string) {
@@ -10,7 +11,7 @@ export async function openAI(description: string) {
       {
         role: "system",
         content:
-          "I need help writing about the description I provided, suggest me some ideas about the story unfolding if a story is provided or some tips about resume if resume details are provided",
+          "I need help writing about the description I provided, sugges me some ideas about the story unfolding or resume writing if resume details are provided",
       },
 
       {
